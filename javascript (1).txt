@@ -1,0 +1,28 @@
+1)Take a sentence as an input and reverse every word in that sentence.
+
+Answer:
+
+ const str ="This is a sunny day";
+
+ const res = str.split(" ");
+   
+  const res1=res.map((name)=>name.split("").reverse().join(""));
+  const result= res1.join(" ");
+  console.log(result);
+
+
+
+2. Perform sorting of an array in descending order.
+
+Answer:
+
+let numbers = [7,6,4,8,3,5,2];
+
+numbers.sort(function(a, b) {
+    return b - a;
+});
+
+console.log(numbers);
+
+
+
