@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>calculations</title>
+	<style>
+		body {
+			background-color: rgb(9, 250, 218);
+		}
+
+		div {
+			width: 300px;
+			border-radius: 20px;
+			background-color: rgb(158, 157, 158);
+			margin-top: 200px;
+			padding: 30px;
+			box-shadow: 10px 10px 50px gray;
+		}
+
+		button {
+			background-color: black;
+			border-radius: 5px;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<center>
+		<div>
+			Frist Number:
+			<input type="number" value="" id="num1"><br><br>
+			Second Number:
+			<input type="number" value="" id="num2"><br><br>
+			<input type="button" value="Addition" onclick=" return fun()">
+			<input type="button" value="Subtract" onclick=" return fun1()">
+			<input type="button" value="Multiply" onclick=" return fun2()">
+			<input type="button" value="Division" onclick=" return fun3()">
+			<br><br>
+			<button onclick=" return fun();">Submit</button>
+			The Result is:
+			<b><span id="result"></span><b></b>
+
+		</div>
+		<script>
+			function fun() {
+				var a = parseInt(document.getElementById('num1').value);
+				var b = parseInt(document.getElementById('num2').value);
+				document.getElementById('result').innerHTML = a + b;
+			}
+			function fun1() {
+				var a = parseInt(document.getElementById('num1').value);
+				var b = parseInt(document.getElementById('num2').value);
+				document.getElementById('result').innerHTML = a - b;
+			}
+			function fun2() {
+				var a = parseInt(document.getElementById('num1').value);
+				var b = parseInt(document.getElementById('num2').value);
+				document.getElementById('result').innerHTML = a * b;
+			}
+			function fun3() {
+				var a = parseInt(document.getElementById('num1').value);
+				var b = parseInt(document.getElementById('num2').value);
+				document.getElementById('result').innerHTML = a / b;
+			}
+		</script>
+	</center>
+</body>
+
+</html>
