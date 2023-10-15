@@ -1,0 +1,285 @@
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-color: mistyrose;
+        }
+
+        form {
+            width: 300px;
+            border-radius: 25px;
+            background-color: coral;
+            padding: 30px;
+            box-shadow: 10px 10px 50px black;
+            text-align: left;
+        }
+
+        h2 {
+            text-shadow: 2px 1px 2px black;
+            text-align: center;
+        }
+    </style>
+    <script>
+        var a = 0;
+        var b = 0;
+        var c = 0;
+        var d = 0;
+        var e = 0;
+        var f = 0;
+        var g = 0;
+        var h = 0;
+        var alpha = /^[A-Za-z]+$/;
+
+        function sub() {
+            if (a == 0 && b == 0 && c == 0 && d == 0 && e == 0 && f == 0 && g == 0 && h == 0) {
+                window.alert("please fill all the filed");
+            }
+
+        }
+        function fnamevalidation() {
+            var firstname = document.myform.name.value;
+            if (firstname == null || firstname == "") {
+                document.getElementById("demo").innerHTML = "Firstname is required";
+                return false;
+
+            }
+            else if (firstname.length < 3 || firstname.length > 20) {
+                document.getElementById("demo").innerHTML = "Firstname must be within 3 to 20 character ";
+
+                return false;
+            }
+            else if (!firstname.match(alpha)) {
+                document.getElementById("demo").innerHTML = "Firstname must be alphabate";
+                return false;
+
+            }
+
+            else {
+                document.getElementById("demo").innerHTML = "";
+                a = 1;
+            }
+
+        }
+
+        function lnamevalidation() {
+            var lname = document.myform.lname.value;
+            if (lname == null || lname == "") {
+                document.getElementById("demo1").innerHTML = "Lastname is required";
+
+                return false;
+
+            }
+            else if (lname.length < 3 || lname.length > 20) {
+                document.getElementById("demo1").innerHTML = "Lastname must be within 3 to 20 character ";
+
+                return false;
+            }
+            else if (!lname.match(alpha)) {
+                document.getElementById("demo1").innerHTML = "Lastname must be alphabate";
+                return false;
+
+            }
+
+            else {
+                document.getElementById("demo1").innerHTML = "";
+                b = 1;
+            }
+
+        }
+
+        function dobValidation() {
+            var dob = document.myform.dob.value;
+            if (dob == null || dob == "") {
+                document.getElementById("demo2").innerHTML = "DOB is required";
+
+                return false;
+
+            }
+            else {
+                document.getElementById("demo2").innerHTML = "";
+                c = 1;
+            }
+
+        }
+
+        function country() {
+            var country = document.myform.country.value;
+            if (country == "country") {
+                document.getElementById("demo3").innerHTML = "country is required";
+
+                return false;
+
+            }
+            else {
+                document.getElementById("demo3").innerHTML = "";
+                h = 0;
+
+            }
+        }
+
+        function isValidPhoneNumber() {
+
+            var phone = document.myform.phone.value;
+
+
+            if (phone.length == 10) {
+                document.getElementById("demo4").innerHTML = "";
+                return true;
+            }
+            else {
+                document.getElementById("demo4").innerHTML = "Phone Number mus be 10 digit ";
+
+                return false;
+                d = 0;
+
+            }
+
+        }
+
+        function validateemail() {
+            var x = document.myform.email.value;
+            var atpos = x.indexOf("@");
+            var dotpos = x.lastIndexOf(".");
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+                document.getElementById("demo5").innerHTML = "Please enter a valid e-mail address ";
+
+                return false;
+            }
+            else {
+                document.getElementById("demo5").innerHTML = "";
+                e = 0;
+            }
+        }
+
+        function passwordValidation() {
+
+            var pass = document.myform.pass.value;
+
+            if (pass.match(/[a-z]/g) && pass.match(
+                /[A-Z]/g) && pass.match(
+                    /[0-9]/g) && pass.match(
+                        /[^a-zA-Z\d]/g) && pass.length >= 8) {
+
+                document.getElementById("demo6").innerHTML = "";
+                return true;
+            }
+            else {
+
+                document.getElementById("demo6").innerHTML = "Password must contain At least 1 uppercase character and 1 lowercase character and 1 digit and 1 special character 8 characters";
+
+                return false;
+                f = 0;
+            }
+        }
+
+        function retypepassword() {
+            var pass = document.myform.pass.value;
+            var repass = document.myform.repass.value;
+
+            if (pass != repass) {
+                document.getElementById("demo7").innerHTML = "Retype password must same with password";
+
+                return false;
+            }
+            else {
+                document.getElementById("demo7").innerHTML = "";
+                return true;
+                g = 0;
+            }
+
+        }
+        function addressValidation() {
+            var add = document.myform.address.value;
+            if (add.length > 10) {
+                document.getElementById("demo8").innerHTML = "address character not less than 10";
+
+                return false;
+
+            }
+            else {
+                document.getElementById("demo8").innerHTML = "";
+                h = 0;
+
+            }
+        }
+    </script>
+</head>
+<center>
+
+    <body>
+        <div>
+            <form name="myform">
+
+
+                <center>
+                    <h2>Registration Form</h2>
+                </center>
+                <hr>
+
+                <span id="demo" style="color: red;"></span><br>
+                <label> Firstname: </label>
+                <input type="text" placeholder="Enter First Name" name="name" size="15"
+                    onblur="return fnamevalidation() " required /> <br> <br>
+
+                <label> Lastname: </label>
+                <input type="text" placeholder="Enter Last Name" name="lname" size="15"
+                    onblur="return lnamevalidation() " required /> <br> <br>
+                <span id="demo2" style="color: red;"></span><br>
+                <label>D.O.B: </label>
+                <input type="date" name="dob" size="15" onblur="return dobValidation() " required> <br>
+                <br>
+
+                <span id="demo3" style="color: red;"></span><br>
+                <label>
+
+                    Country :
+                </label>
+                <select name="country" onblur="return country()">
+                    <option value="country">country</option>
+                    <option value="India">India</option>
+                    <option value="America">America</option>
+                    <option value="china">china</option>
+                    <option value="UK">UK</option>
+                </select>
+
+
+                <br>
+                <br>
+
+                <label>
+                    Gender :
+                    <div style="padding-left: 70px; color:black">
+                        <input type="checkbox" name="gender" /> Male <br>
+                        <input type="checkbox" name="gender" /> Female <br>
+                        <input type="checkbox" name="gender" /> Other
+                    </div>
+                </label>
+                <br>
+                <span id="demo4" style="color: red;"></span><br>
+                <label>
+                    Phone :
+                </label>
+                <input type="text" name="country code" value="+91" size="2" />
+                <input type="text" name="phone" placeholder="Enter 10digit No" size="10"
+                    onblur="return isValidPhoneNumber()" required /> <br> <br>
+                <span id="demo8" style="color: red;"></span><br>
+                Profession :
+                <input type="text" placeholder="Profession" name="profession" onblur="return professionValidation()"
+                    required></input>
+                <br> <br>
+                <span id="demo5" style="color: red;"></span><br>
+                Email:
+                <input type="email" id="email" placeholder="Enter Email" name="email" onblur="return validateemail()"
+                    required />
+                <br> <br>
+                <span id="demo6" style="color: red;"></span><br>
+                <button type="submit" class="Submit" onclick="sub()"> Register</button>
+                <button type="reset" class="reset"> Reset</button>
+            </form>
+        </div>
+    </body>
+</center>
+
+</html>
